@@ -1,7 +1,11 @@
 #!/usr/bin/env gem build
 # -*- encoding: utf-8 -*-
 require 'date'
-require 'lib/sequel_on_update/version'
+if RUBY_VERSION < '1.9.0'
+  require 'lib/sequel_on_update/version'
+else
+  require File.expand_path('../lib/sequel_on_update/version', __FILE__)
+end
 
 Gem::Specification.new do |gem|
   gem.name     = 'sequel_on_update'
